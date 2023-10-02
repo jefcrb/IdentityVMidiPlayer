@@ -14,7 +14,8 @@ public static class Keyboard
     {
         WindsongLyre,
         FloralZither,
-        VintageLyre
+        VintageLyre,
+        IDV_Piano
     }
 
     public enum Layout
@@ -31,9 +32,10 @@ public static class Keyboard
 
     public static readonly Dictionary<Instrument, string> InstrumentNames = new()
     {
-        [Instrument.WindsongLyre] = "Piano",
+        [Instrument.WindsongLyre] = "Winsong Lyre",
         [Instrument.FloralZither] = "Floral Zither",
-        [Instrument.VintageLyre]  = "Vintage Lyre"
+        [Instrument.VintageLyre]  = "Vintage Lyre",
+        [Instrument.IDV_Piano]    = "IDV Piano"
     };
 
     public static readonly Dictionary<Layout, string> LayoutNames = new()
@@ -318,6 +320,48 @@ public static class Keyboard
         82  // Bb5
     };
 
+    private static readonly List<int> IncludeBlackKeys = new()
+    {
+        48, // C3
+        49,     // C#3
+        50, // D3
+        51,     // D#3
+        52, // E3
+        53, // F3
+        54,     // F#3
+        55, // G3
+        56,     // G#3
+        57, // A3
+        58,     // A#3
+        59, // B3
+
+        60, // C4
+        61,     // C#4
+        62, // D4
+        63,     // D#4
+        64, // E4
+        65, // F4
+        66,     // F#4
+        67, // G4
+        68,     // G#4
+        69, // A4
+        70,     // A#4
+        71, // B4
+
+        72, // C5
+        73,     // C#5
+        74, // D5
+        75,     // D#5
+        76, // E5
+        77, // F5
+        78,     // F#5
+        79, // G5
+        80,     // G#5
+        81, // A5
+        82,     // A#5
+        83  // B5
+    };
+
     public static IEnumerable<VirtualKeyCode> GetLayout(Layout layout) => layout switch
     {
         Layout.QWERTY           => QWERTY,
@@ -336,6 +380,7 @@ public static class Keyboard
         Instrument.WindsongLyre => DefaultNotes,
         Instrument.FloralZither => DefaultNotes,
         Instrument.VintageLyre  => VintageNotes,
+        Instrument.IDV_Piano    => IncludeBlackKeys,
         _                       => DefaultNotes
     };
 }
