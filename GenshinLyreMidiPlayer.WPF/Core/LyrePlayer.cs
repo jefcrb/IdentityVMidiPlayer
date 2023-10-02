@@ -13,10 +13,8 @@ public static class LyrePlayer
     private static readonly IInputSimulator Input = new InputSimulator();
 
     public static int TransposeNote(
-        Instrument instrument, ref int noteId,
-        Transpose direction = Transpose.Ignore)
+        Instrument instrument, ref int noteId)
     {
-        if (direction is Transpose.Ignore) return noteId;
         var notes = GetNotes(instrument);
         while (true)
         {
@@ -29,15 +27,11 @@ public static class LyrePlayer
                 noteId -= 12;
             else
             {
-                return direction switch
-                {
-                    Transpose.Up   => ++noteId,
-                    Transpose.Down => --noteId,
-                    _              => noteId
-                };
+                return noteId;
             }
         }
     }
+
 
     public static void NoteDown(int noteId, Layout layout, Instrument instrument)
         => InteractNote(noteId, layout, instrument, Input.Keyboard.KeyDown);
