@@ -242,27 +242,42 @@ public static class Keyboard
     private static readonly IReadOnlyList<VirtualKeyCode> QWERTY_MODIFIED = new List<VirtualKeyCode>
     {
         VirtualKeyCode.OEM_COMMA,
+        VirtualKeyCode.VK_L,      // C#3
         VirtualKeyCode.OEM_PERIOD,
+        VirtualKeyCode.OEM_1,     // D#3
         VirtualKeyCode.OEM_2,
         VirtualKeyCode.VK_I,
+        VirtualKeyCode.VK_9,      // F#3
         VirtualKeyCode.VK_O,
+        VirtualKeyCode.VK_0,      // G#3
         VirtualKeyCode.VK_P,
+        VirtualKeyCode.OEM_MINUS, // A#3
         VirtualKeyCode.OEM_4,
 
         VirtualKeyCode.VK_Z,
+        VirtualKeyCode.VK_S,      // C#4
         VirtualKeyCode.VK_X,
+        VirtualKeyCode.VK_D,      // D#4
         VirtualKeyCode.VK_C,
         VirtualKeyCode.VK_V,
+        VirtualKeyCode.VK_G,      // F#4
         VirtualKeyCode.VK_B,
+        VirtualKeyCode.VK_H,      // G#4
         VirtualKeyCode.VK_N,
+        VirtualKeyCode.VK_J,      // A#4
         VirtualKeyCode.VK_M,
 
         VirtualKeyCode.VK_Q,
+        VirtualKeyCode.VK_2,      // C#5
         VirtualKeyCode.VK_W,
+        VirtualKeyCode.VK_3,      // D#5
         VirtualKeyCode.VK_E,
         VirtualKeyCode.VK_R,
+        VirtualKeyCode.VK_5,      // F#5
         VirtualKeyCode.VK_T,
+        VirtualKeyCode.VK_6,      // G#5
         VirtualKeyCode.VK_Y,
+        VirtualKeyCode.VK_7,      // A#5
         VirtualKeyCode.VK_U
     };
 
