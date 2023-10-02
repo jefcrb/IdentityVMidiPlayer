@@ -12,10 +12,10 @@
       <Value Profile="(Default)">history.db</Value>
     </Setting>
     <Setting Name="LicenseUri" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">https://github.com/sabihoshi/GenshinLyreMidiPlayer/blob/main/LICENSE.md</Value>
+      <Value Profile="(Default)">https://github.com/jefcrb/IdentityVPianoMidiPlayer/blob/main/LICENSE.md</Value>
     </Setting>
     <Setting Name="ThirdPartyLicenseUri" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">https://github.com/sabihoshi/GenshinLyreMidiPlayer/blob/main/THIRD-PARTY-NOTICES.md</Value>
+      <Value Profile="(Default)">https://github.com/jefcrb/IdentityVPianoMidiPlayer/blob/main/THIRD-PARTY-NOTICES.md</Value>
     </Setting>
     <Setting Name="AutoCheckUpdates" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
@@ -54,7 +54,7 @@
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="GenshinLocation" Type="System.String" Scope="User">
-      <Value Profile="(Default)">GenshinImpact.exe</Value>
+      <Value Profile="(Default)">dwrg.exe</Value>
     </Setting>
     <Setting Name="SelectedInstrument" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
