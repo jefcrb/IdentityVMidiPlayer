@@ -25,12 +25,13 @@ public static class Keyboard
         DVORAK,
         DVORAKLeft,
         DVORAKRight,
-        Colemak
+        Colemak,
+        QWERTY_MODIFIED
     }
 
     public static readonly Dictionary<Instrument, string> InstrumentNames = new()
     {
-        [Instrument.WindsongLyre] = "Windsong Lyre",
+        [Instrument.WindsongLyre] = "Piano",
         [Instrument.FloralZither] = "Floral Zither",
         [Instrument.VintageLyre]  = "Vintage Lyre"
     };
@@ -43,7 +44,8 @@ public static class Keyboard
         [Layout.DVORAK]      = "DVORAK",
         [Layout.DVORAKLeft]  = "DVORAK Left Handed",
         [Layout.DVORAKRight] = "DVORAK Right Handed",
-        [Layout.Colemak]     = "Colemak"
+        [Layout.Colemak]     = "Colemak",
+        [Layout.QWERTY_MODIFIED] = "QWERTY Modified"
     };
 
     private static readonly IReadOnlyList<VirtualKeyCode> AZERTY = new List<VirtualKeyCode>
@@ -235,6 +237,33 @@ public static class Keyboard
         VirtualKeyCode.VK_U
     };
 
+    private static readonly IReadOnlyList<VirtualKeyCode> QWERTY_MODIFIED = new List<VirtualKeyCode>
+    {
+        VirtualKeyCode.OEM_COMMA,
+        VirtualKeyCode.OEM_PERIOD,
+        VirtualKeyCode.OEM_2,
+        VirtualKeyCode.VK_I,
+        VirtualKeyCode.VK_O,
+        VirtualKeyCode.VK_P,
+        VirtualKeyCode.OEM_4,
+
+        VirtualKeyCode.VK_Z,
+        VirtualKeyCode.VK_X,
+        VirtualKeyCode.VK_C,
+        VirtualKeyCode.VK_V,
+        VirtualKeyCode.VK_B,
+        VirtualKeyCode.VK_N,
+        VirtualKeyCode.VK_M,
+
+        VirtualKeyCode.VK_Q,
+        VirtualKeyCode.VK_W,
+        VirtualKeyCode.VK_E,
+        VirtualKeyCode.VK_R,
+        VirtualKeyCode.VK_T,
+        VirtualKeyCode.VK_Y,
+        VirtualKeyCode.VK_U
+    };
+
     private static readonly List<int> DefaultNotes = new()
     {
         48, // C3
@@ -291,14 +320,15 @@ public static class Keyboard
 
     public static IEnumerable<VirtualKeyCode> GetLayout(Layout layout) => layout switch
     {
-        Layout.QWERTY      => QWERTY,
-        Layout.QWERTZ      => QWERTZ,
-        Layout.AZERTY      => AZERTY,
-        Layout.DVORAK      => DVORAK,
-        Layout.DVORAKLeft  => DVORAKLeft,
-        Layout.DVORAKRight => DVORAKRight,
-        Layout.Colemak     => Colemak,
-        _                  => QWERTY
+        Layout.QWERTY           => QWERTY,
+        Layout.QWERTY_MODIFIED  => QWERTY_MODIFIED,
+        Layout.QWERTZ           => QWERTZ,
+        Layout.AZERTY           => AZERTY,
+        Layout.DVORAK           => DVORAK,
+        Layout.DVORAKLeft       => DVORAKLeft,
+        Layout.DVORAKRight      => DVORAKRight,
+        Layout.Colemak          => Colemak,
+        _                       => QWERTY
     };
 
     public static IList<int> GetNotes(Instrument instrument) => instrument switch
