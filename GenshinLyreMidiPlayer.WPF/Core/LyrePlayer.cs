@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using GenshinLyreMidiPlayer.Data.Entities;
+using GenshinLyreMidiPlayer.Data.Properties;
+using GenshinLyreMidiPlayer.WPF.ModernWPF.Animation.Transitions;
 using WindowsInput;
 using WindowsInput.Native;
 using static GenshinLyreMidiPlayer.WPF.Core.Keyboard;
@@ -13,7 +15,9 @@ public static class LyrePlayer
     private static readonly IInputSimulator Input = new InputSimulator();
 
     public static int TransposeNote(
-        Instrument instrument, ref int noteId)
+        Instrument instrument, ref int noteId,
+        Transpose direction = Transpose.Ignore,
+        bool useBlackNotes = false)
     {
         var notes = GetNotes(instrument);
         while (true)
@@ -27,7 +31,15 @@ public static class LyrePlayer
                 noteId -= 12;
             else
             {
-                return noteId;
+                if (useBlackNotes)
+                    return noteId;
+
+                return direction switch
+                {
+                    Transpose.Up => ++noteId,
+                    Transpose.Down => --noteId,
+                    _ => noteId
+                };
             }
         }
     }
@@ -44,7 +56,19 @@ public static class LyrePlayer
 
     public static bool TryGetKey(Layout layout, Instrument instrument, int noteId, out VirtualKeyCode key)
     {
-        var keys = GetLayout(layout);
+        IEnumerable<VirtualKeyCode> keys = new List<VirtualKeyCode>();
+
+        switch (instrument)
+        {
+            case Instrument.Piano_Black_Keys:
+                keys = GetLayout(Layout.QWERTY_MODIFIED);
+                break;
+
+            default:
+                keys = GetLayout(Layout.QWERTY);
+                break;
+        }
+
         var notes = GetNotes(instrument);
         return TryGetKey(keys, notes, noteId, out key);
     }

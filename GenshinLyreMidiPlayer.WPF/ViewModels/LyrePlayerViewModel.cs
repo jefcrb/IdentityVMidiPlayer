@@ -357,7 +357,9 @@ public class LyrePlayerViewModel : Screen,
     private int ApplyNoteSettings(Keyboard.Instrument instrument, int noteId)
     {
         noteId -= Playlist.OpenedFile?.History.Key ?? SettingsPage.KeyOffset;
-        return LyrePlayer.TransposeNote(instrument, ref noteId);
+        return Settings.TransposeNotes && SettingsPage.Transpose is not null
+            ? LyrePlayer.TransposeNote(instrument, ref noteId, SettingsPage.Transpose.Value.Key)
+            : noteId;
     }
 
     private async Task InitializePlayback()

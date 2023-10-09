@@ -59,7 +59,8 @@
                         ItemsSource="{x:Static core:Keyboard.LayoutNames}"
                         SelectedItem="{Binding SelectedLayout}"
                         SelectedIndex="{Binding Default.SelectedLayout, Source={StaticResource Settings}}"
-                        DisplayMemberPath="Value" />
+                        DisplayMemberPath="Value"
+                     />
                 </GroupBox>
 
                 <GroupBox Header="Instrument">
@@ -67,7 +68,8 @@
                         ItemsSource="{x:Static core:Keyboard.InstrumentNames}"
                         SelectedItem="{Binding SelectedInstrument}"
                         SelectedIndex="{Binding Default.SelectedInstrument, Source={StaticResource Settings}}"
-                        DisplayMemberPath="Value" />
+                        DisplayMemberPath="Value"
+                    />
                 </GroupBox>
             </modern:SimpleStackPanel>
 

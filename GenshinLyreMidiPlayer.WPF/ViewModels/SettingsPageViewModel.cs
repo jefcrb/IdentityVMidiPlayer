@@ -423,6 +423,8 @@ public class SettingsPageViewModel : Screen
     {
         var instrument = (int) SelectedInstrument.Key;
         Settings.Modify(s => s.SelectedInstrument = instrument);
+
+
     }
 
     [UsedImplicitly]

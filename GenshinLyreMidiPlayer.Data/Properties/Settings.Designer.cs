@@ -125,7 +125,7 @@ namespace GenshinLyreMidiPlayer.Data.Properties {
                 this["UseSpeakers"] = value;
             }
         }
-        
+
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("-1")]
