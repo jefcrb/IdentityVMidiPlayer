@@ -201,16 +201,16 @@ public class SettingsPageViewModel : Screen
             Settings.GenshinLocation,
 
             // Default install location
-            @"C:\Program Files\Genshin Impact\Genshin Impact Game\GenshinImpact.exe",
-            @"C:\Program Files\Genshin Impact\Genshin Impact Game\YuanShen.exe",
+            @"C:\IdentityV\dwrg.exe",
+            @"C:\IdentityV\IdentityV.exe",
 
             // Custom install location
-            Path.Combine(WindowHelper.InstallLocation ?? string.Empty, @"Genshin Impact Game\GenshinImpact.exe"),
-            Path.Combine(WindowHelper.InstallLocation ?? string.Empty, @"Genshin Impact Game\YuanShen.exe"),
+            Path.Combine(WindowHelper.InstallLocation ?? string.Empty, @"IdentityV\dwrg.exe"),
+            Path.Combine(WindowHelper.InstallLocation ?? string.Empty, @"IdentityV\IdentityV.exe"),
 
             // Relative location
-            AppContext.BaseDirectory + "GenshinImpact.exe",
-            AppContext.BaseDirectory + "YuanShen.exe"
+            AppContext.BaseDirectory + "dwrg.exe",
+            AppContext.BaseDirectory + "IdentityV.exe"
         };
 
         foreach (var location in locations)
