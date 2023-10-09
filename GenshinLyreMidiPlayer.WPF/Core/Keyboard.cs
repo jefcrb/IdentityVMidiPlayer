@@ -21,7 +21,8 @@ public static class Keyboard
     public enum Layout
     {
         QWERTY,
-        QWERTY_MODIFIED
+        QWERTY_LONG,
+        QWERTY_SHORT
     }
 
     public static readonly Dictionary<Instrument, string> InstrumentNames = new()
@@ -34,7 +35,8 @@ public static class Keyboard
     public static readonly Dictionary<Layout, string> LayoutNames = new()
     {
         [Layout.QWERTY]             = "QWERTY",
-        [Layout.QWERTY_MODIFIED]    = "QWERTY black keys"
+        [Layout.QWERTY_LONG]        = "QWERTY long",
+        [Layout.QWERTY_SHORT]       = "QWERTY short"
     };
 
     private static readonly IReadOnlyList<VirtualKeyCode> QWERTY = new List<VirtualKeyCode>
@@ -64,7 +66,7 @@ public static class Keyboard
         VirtualKeyCode.VK_U
     };
 
-    private static readonly IReadOnlyList<VirtualKeyCode> QWERTY_MODIFIED = new List<VirtualKeyCode>
+    private static readonly IReadOnlyList<VirtualKeyCode> QWERTY_LONG = new List<VirtualKeyCode>
     {
         VirtualKeyCode.OEM_COMMA,
         VirtualKeyCode.VK_L,      // C#3
@@ -103,6 +105,25 @@ public static class Keyboard
         VirtualKeyCode.VK_6,      // G#5
         VirtualKeyCode.VK_Y,
         VirtualKeyCode.VK_7,      // A#5
+        VirtualKeyCode.VK_U
+    };
+
+    private static readonly IReadOnlyList<VirtualKeyCode> QWERTY_SHORT = new List<VirtualKeyCode>
+    {
+        VirtualKeyCode.VK_A,
+        VirtualKeyCode.VK_S,
+        VirtualKeyCode.VK_D,
+        VirtualKeyCode.VK_F,
+        VirtualKeyCode.VK_G,
+        VirtualKeyCode.VK_H,
+        VirtualKeyCode.VK_J,
+
+        VirtualKeyCode.VK_Q,
+        VirtualKeyCode.VK_W,
+        VirtualKeyCode.VK_E,
+        VirtualKeyCode.VK_R,
+        VirtualKeyCode.VK_T,
+        VirtualKeyCode.VK_Y,
         VirtualKeyCode.VK_U
     };
 
@@ -197,7 +218,8 @@ public static class Keyboard
     public static IEnumerable<VirtualKeyCode> GetLayout(Layout layout) => layout switch
     {
         Layout.QWERTY           => QWERTY,
-        Layout.QWERTY_MODIFIED  => QWERTY_MODIFIED,
+        Layout.QWERTY_LONG      => QWERTY_LONG,
+        Layout.QWERTY_SHORT     => QWERTY_SHORT,
         _                       => QWERTY
     };
 

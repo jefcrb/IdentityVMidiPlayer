@@ -61,7 +61,11 @@ public static class LyrePlayer
         switch (instrument)
         {
             case Instrument.Piano_Black_Keys:
-                keys = GetLayout(Layout.QWERTY_MODIFIED);
+                keys = GetLayout(Layout.QWERTY_LONG);
+                break;
+
+            case Instrument.Flute:
+                keys = GetLayout(Layout.QWERTY_SHORT);
                 break;
 
             default:
