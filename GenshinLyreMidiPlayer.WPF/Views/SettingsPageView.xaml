@@ -54,15 +54,6 @@
             </modern:SimpleStackPanel>
 
             <modern:SimpleStackPanel Orientation="Horizontal">
-                <GroupBox Header="Layout">
-                    <ComboBox
-                        ItemsSource="{x:Static core:Keyboard.LayoutNames}"
-                        SelectedItem="{Binding SelectedLayout}"
-                        SelectedIndex="{Binding Default.SelectedLayout, Source={StaticResource Settings}}"
-                        DisplayMemberPath="Value"
-                     />
-                </GroupBox>
-
                 <GroupBox Header="Instrument">
                     <ComboBox
                         ItemsSource="{x:Static core:Keyboard.InstrumentNames}"
